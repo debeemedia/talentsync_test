@@ -17,7 +17,7 @@ async function createUser (req, res) {
         const user = new UserModel({username, password})
         const existingUser = await UserModel.findOne({username})
         if (existingUser) {
-            return res.status(400).json({success: false, message: 'User already exists'})
+            return res.status(400).json({success: false, message: 'Username already exists'})
         }
 
         await user.save()
